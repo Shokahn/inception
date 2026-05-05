@@ -1,6 +1,5 @@
 COMPOSE = docker-compose -f srcs/docker-compose.yml
-LOGIN   = $(shell grep '^LOGIN=' srcs/.env | cut -d= -f2)
-DATA    = /home/$(LOGIN)/data
+DATA    = $(HOME)/data
 
 all: $(DATA)/db $(DATA)/wp
 	$(COMPOSE) up --build -d
